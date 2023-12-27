@@ -12,8 +12,8 @@ USER=
 PASS=
 CMD=
 
-NEEDED_TOOLS="wget"
-RECOMMENDED_TOOLS="curl"
+NEEDED_TOOLS="wget grep"
+RECOMMENDED_TOOLS="curl awk sed"
 
 check_prereq()
 {
@@ -127,7 +127,7 @@ usage()
     fi
 
     echo "Options:"
-    echo "-h, --help                        Show this usage text"
+    echo "-h, --help                Show this usage text"
     echo ""
     exit 1
 }
