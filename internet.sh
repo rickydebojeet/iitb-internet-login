@@ -12,8 +12,8 @@ USER=
 PASS=
 CMD=
 
-NEEDED_TOOLS="wget"
-RECOMMENDED_TOOLS="curl awk sed"
+NEEDED_TOOLS="wget awk sed"
+RECOMMENDED_TOOLS="curl"
 
 check_prereq()
 {
