@@ -26,10 +26,10 @@ The login command can be used in any unix machine which has the `wget` and `grep
 
 Some features that will be added soon are:
 
-- [] Check if you are logged in and it is working.
-- [] wget support for logout.
-- [] Encrypt the credentials file.
-- [] Shell autocompletion.
+- Check if you are logged in and it is working.
+- wget support for logout.
+- Encrypt the credentials file.
+- Shell autocompletion.
 
 ## Feedback
 
