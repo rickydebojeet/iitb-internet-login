@@ -5,7 +5,9 @@ This script is work in progress and new features will be added soon.
 
 ## Usage
 
-Curently, the script can be used to login, logout, show and change the credentials. The credentials are stored in a file in the home directory. The script will prompt for the credentials if they are not present in the file.
+Curently, the script can be used to login, logout, show and change the credentials. The credentials are stored in a file in the working directory where the script is invoked. The script will prompt for the credentials if they are not present in the file.
+
+Make the script executable by running `chmod +x internet.sh` and then run the script as follows:
 
 ```bash
 ./internet.sh <command> [options]
@@ -20,7 +22,7 @@ Options:
 -h, --help                  Show this usage text
 ```
 
-The login command can be used in any linux machine which has the `wget` and `grep` tool installed. But it is recommended to have `curl` installed. The logout command can only be used `curl` and requires `awk` and `sed` to be installed.
+The login command can be used in any unix machine which has the `wget` and `grep` tool installed. But it is recommended to have `curl` installed. The logout command can only be used with `curl` and requires `awk` and `sed` to be installed.
 
 Some features that will be added soon are:
 
