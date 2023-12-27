@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Features to be added 
-# curl -L -X POST "https://internet.iitb.ac.in/logout.php" -d "button=Logout&etype=rs&etype=rs&etype=rs&etype=rs&ip=10.14.22.240&etype=rs"
+# IITB Internet Login script 
+# Author: Debojeet Das
 #
 echo -e "IITB Internet Login script"
 
@@ -90,6 +90,24 @@ login ()
     fi
 }
 
+logout ()
+{
+    echo -e "Checking if logged in..."
+    ip=$(curl -L  --silent https://internet.iitb.ac.in | grep "checked" | awk '{print $4}' |awk '{split($0,a,"="); print a[2]}' | sed 's/"//g')
+    if [[ -z "$ip" ]]; then
+        echo -e "\e[1;31mNot logged in!\e[0m"
+        exit 1
+    else
+        curl -L --silent -X POST "https://internet.iitb.ac.in/logout.php" -d "button=Logout&etype=rs&etype=rs&etype=rs&etype=rs&ip=$ip&etype=rs" > /dev/null
+        checkip=$(curl -L  --silent https://internet.iitb.ac.in | grep "checked" | awk '{print $4}' |awk '{split($0,a,"="); print a[2]}' | sed 's/"//g')
+        if [[ -z "$checkip" ]]; then
+            echo -e "\e[1;32mLogged out!\e[0m"
+        else
+            echo -e "\e[1;31mSomething is Wrong!!\e[0m"
+        fi
+    fi
+}
+
 usage()
 {
     local FULL=${1:-}
@@ -97,7 +115,8 @@ usage()
     echo "Usage: $0 <command> [options]"
     echo ""
     echo "Commands:"
-    echo "login                     Run the website in your localhost"
+    echo "login                     Login to the iitb internet"
+    echo "logout                    Logout from the iitb internet"
     echo "show                      Show the credentials"
     echo "change                    Change the credentials"
     echo ""
@@ -141,6 +160,9 @@ done
 case "$1" in
     login)
         CMD=login
+        ;;
+    logout)
+        CMD=logout
         ;;
     show)
         CMD=show_data
