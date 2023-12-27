@@ -12,7 +12,7 @@ USER=
 PASS=
 CMD=
 
-NEEDED_TOOLS="wget grep"
+NEEDED_TOOLS="wget"
 RECOMMENDED_TOOLS="curl awk sed"
 
 check_prereq()
