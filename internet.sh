@@ -32,7 +32,7 @@ check_data()
     else
         echo -e "\e[1;91mUser-Password not set. Please enter the details!\e[0m"
         read -p "username: " USER
-        read -sp "password: " PASS
+        read -p "access token: " PASS
         echo ""
         echo "$USER:$PASS" > "$PWD/.internet.dat"
     fi
@@ -43,7 +43,7 @@ change_data()
     if [ -f "$PWD/.internet.dat" ]; then
         echo -e "\e[1;36mChanging User-Password...\e[0m"
         read -p "username: " USER
-        read -sp "password: " PASS
+        read -p "acess token: " PASS
         echo ""
         echo "$USER:$PASS" > "$PWD/.internet.dat"
         echo -e "\e[1;32mChanged Password!\e[0m"
